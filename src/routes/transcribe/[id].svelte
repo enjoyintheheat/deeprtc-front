@@ -24,6 +24,8 @@
 	let audioSrc;
 	let editorTrigger = false;
 
+	let linkValue;
+
 	moment.locale();
 
 	onMount(() => {
@@ -31,7 +33,7 @@
 		const url = `${baseUrl}/files/poll-token/${id}`;
 		const transcribeInput = document.getElementById('transcribe-link');
 
-		transcribeInput.setAttribute('value', `${baseUrl}/transcribe/${id}`);
+		linkValue = `${baseUrl}/transcribe/${id}`;
 
 		const mainEditor = document.getElementById('main-editor');
 
@@ -116,6 +118,7 @@
 				<input
 					id="transcribe-link"
 					type="text"
+					value={linkValue}
 					class="form-control"
 					placeholder="..."
 					aria-label="Input group example"

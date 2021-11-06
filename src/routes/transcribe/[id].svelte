@@ -33,7 +33,9 @@
 		const url = `${baseUrl}/files/poll-token/${id}`;
 		const transcribeInput = document.getElementById('transcribe-link');
 
-		linkValue = `${baseUrl}/transcribe/${id}`;
+		const frontUrl = import.meta.env.VITE_BASE_URL;
+
+		linkValue = `${frontUrl}/transcribe/${id}`;
 
 		const mainEditor = document.getElementById('main-editor');
 

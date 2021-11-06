@@ -1,4 +1,5 @@
 import preprocess from 'svelte-preprocess';
+import adapter from '@sveltejs/adapter-node';
 import dotenv from 'dotenv';
 
 dotenv.config();
@@ -11,6 +12,14 @@ const config = {
 	kit: {
 		// hydrate the <div id="svelte"> element in src/app.html
 		target: '#svelte',
+		adapter: adapter({
+			out: 'build',
+			precompress: false,
+			env: {
+				VITE_API_URL: "http://localhost:8000",
+				VITE_BASE_URL: "http://localhost:3000",
+			}
+		})
 	}
 };
 

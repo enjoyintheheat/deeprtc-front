@@ -1,5 +1,14 @@
 <script lang="ts">
 	import logoSvg from '../../static/small-logo.svg';
+	import { goto } from '$app/navigation';
+
+	function audioProcessing() {
+		goto('/');
+	}
+
+	function subtitleProcessing() {
+		goto('/subtitles');
+	}
 </script>
 
 <div class="container-fluid header-container">
@@ -10,7 +19,10 @@
 			<span class="logo-description">Официальный сайт Мэра Москвы</span>
 		</div>
 		<div class="col" />
-		<div class="col header-status" />
+		<div class="col header-links">
+			<span id="transcribe-link" on:click={audioProcessing}>Транскрибация</span>
+			<span id="subtitle-link" on:click={subtitleProcessing}>Субтитры</span>
+		</div>
 	</div>
 </div>
 
@@ -36,7 +48,14 @@
 		font-size: 16px;
 	}
 
-	.header-status {
+	.header-links {
 		text-align: right;
+		font-size: 14px;
+	}
+
+	#transcribe-link:hover,
+	#subtitle-link:hover {
+		cursor: pointer;
+		font-weight: bolder;
 	}
 </style>
